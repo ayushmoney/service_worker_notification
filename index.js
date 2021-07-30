@@ -24,3 +24,12 @@ function showNotification() {
     }
   });
 }
+document.addEventListener("visibilitychange",()=>{
+  if(document.visibilityState==='hidden'){
+    navigator.serviceWorker.ready.then(function(registration) {
+      registration.showNotification('Message from admin', {
+        body: 'Hey!!! Why did you left us, come back'
+      });
+    });
+  }
+})
