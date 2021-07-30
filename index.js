@@ -14,11 +14,13 @@ function showNotification() {
   Notification.requestPermission(function(result) {
     if (result === 'granted') {
         console.log('function called : yes');
-      navigator.serviceWorker.ready.then(function(registration) {
-        registration.showNotification('Message from admin', {
-          body: 'Buzz! Buzz!'
+      setTimeout(()=>{
+        navigator.serviceWorker.ready.then(function(registration) {
+          registration.showNotification('Message from admin', {
+            body: 'Buzz! Buzz!'
+          });
         });
-      });
+      },4000)
     }
   });
 }
